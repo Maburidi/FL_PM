@@ -1,7 +1,6 @@
-# Topological Adversarial Attacks on Graph Neural Networks via Projected Meta Learning
+# Adversarial Attack and Training for Graph Convolutional Networks using Focal Loss-Projected Momentum
 
-
-This is the complete code for the ProjectedMetaAttach framework to generate poisoning attacks on Graph Neural Networks GNNs. The work is pubished in the following papers: <br />
+This is the complete code for the FL_PM framework to generate poisoning attacks on Graph Neural Networks GNNs. The work is pubished in the following papers: <br />
 ([Paper]())
 
 
@@ -24,12 +23,6 @@ First install dependencies:
 ```python
 !bash install_dependencies.sh
 ```
-Also, install DeepRobust 
-```python
-!git clone https://github.com/DSE-MSU/DeepRobust.git
-%cd DeepRobust
-!python setup.py install
-```
 
 
 ## Train and test 
@@ -38,9 +31,20 @@ Use Pertrubation rate = 10% , on Cora and using MetaAttach to perturb
 !python main.py --ptb_rate 0.1 --dataset 'cora' --epochs 250  
 ```
 
+### Illustrative Figure 
+<img width="446" alt="image" src="https://github.com/Maburidi/FL_PM/assets/48891624/6c6897ef-106d-4af8-9193-9ff48284ad71">
+
+<br /> 
+  <br /> 
+   <br /> 
+
 ## Main algorithm:
 
-<img width="738" alt="image" src="https://github.com/Maburidi/ProjectedMettaAttack/assets/48891624/0c5baf66-b8da-4ee6-8ac7-497e950b57d1">
+
+<img width="443" alt="image" src="https://github.com/Maburidi/FL_PM/assets/48891624/312bfec1-a939-4c4d-b034-507f6d4a83a3">
+
+<img width="434" alt="image" src="https://github.com/Maburidi/FL_PM/assets/48891624/7b51ae5e-89c4-431e-9cd2-461d2b60daec">
+
 
 <br /> 
   <br /> 
@@ -49,13 +53,14 @@ Use Pertrubation rate = 10% , on Cora and using MetaAttach to perturb
 
 ## Main Results: 
 
-<img width="359" alt="image" src="https://github.com/Maburidi/ProjectedMettaAttack/assets/48891624/b11b2f12-d4ef-4022-b2f5-079da8f78d8c">
+<img width="346" alt="image" src="https://github.com/Maburidi/FL_PM/assets/48891624/38da188a-0949-4f71-80b0-5193f572f8e8">
+
+<img width="396" alt="image" src="https://github.com/Maburidi/FL_PM/assets/48891624/0c92e3cc-f152-47fa-8c53-95066243f8c9">
+
+<img width="453" alt="image" src="https://github.com/Maburidi/FL_PM/assets/48891624/49ccaf01-73de-4ff5-8fcd-f2aa6856675f">
 
 
-<img width="352" alt="image" src="https://github.com/Maburidi/ProjectedMettaAttack/assets/48891624/b2a889e1-dcff-4d5c-94ea-918da38fc882">
-
-
-<img width="676" alt="image" src="https://github.com/Maburidi/ProjectedMettaAttack/assets/48891624/c9154aa9-1425-4f45-8fa6-57f50726cafc">
+<img width="432" alt="image" src="https://github.com/Maburidi/FL_PM/assets/48891624/9186bd9a-dd4f-4276-b92c-08fbde10fcf7">
 
 
  <br /> 
