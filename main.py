@@ -53,6 +53,34 @@ def Parser():
 
     return parser
 
+
+def test(new_adj, gcn=None):
+    ''' test on GCN '''
+
+    if gcn is None:
+        # adj = normalize_adj_tensor(adj)
+        gcn = GCN(nfeat=features.shape[1],
+                  nhid=16,
+                  nclass=labels.max().item() + 1,
+                  dropout=0.5, device=device)
+        gcn = gcn.to(device)
+        # gcn.fit(features, new_adj, labels, idx_train) # train without model picking
+        gcn.fit(features, new_adj, labels, idx_train, idx_val, patience=30) # train with validation model picking
+        gcn.eval()
+        output = gcn.predict().cpu()
+    else:
+        gcn.eval()
+        output = gcn.predict(features.to(device), new_adj.to(device)).cpu()
+
+    loss_test = F.nll_loss(output[idx_test], labels[idx_test])
+    acc_test = accuracy(output[idx_test], labels[idx_test])
+    print("Test set results:",
+          "loss= {:.4f}".format(loss_test.item()),
+          "accuracy= {:.4f}".format(acc_test.item()))
+
+    return acc_test.item(), gcn
+
+
 def main(args):
     ptb_rate = args.ptb_rate
     seed = args.seed
